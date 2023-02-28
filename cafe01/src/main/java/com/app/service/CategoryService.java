@@ -1,0 +1,93 @@
+package com.app.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+
+import com.app.entity.Category;
+import com.app.repository.ICategoryRepository;
+@Service
+@Transactional
+public class CategoryService implements ICategoryService{
+
+	@Autowired
+	private ICategoryRepository catrepo;
+	@Override
+//	public void addCategory(Category catobj) {
+//		catrepo.save(catobj);
+//	}
+//	
+	public ResponseEntity<Category> addCategory(Category catobj) {
+		catrepo.save(catobj);
+		return new ResponseEntity<Category>(catobj,HttpStatus.OK);
+	}
+	@Override
+	public void deleteCategoryById(Long id) {
+		catrepo.deleteById(id);
+		
+	}
+	@Override
+	public List<Category> viewAllCat() {
+		return catrepo.findAll(); 
+	}
+//	@Override
+//	public String updateCategoryName(Category catObj) {
+//	
+//		if(catrepo.existsById(catObj.getId()))
+//		{
+//			 catrepo.save(catObj);
+//			 return "updated";
+//		}
+//		else {
+//			return "Invalid Id";
+//	}
+//	
+//	}
+
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+//	public CategoryDto createCategory(CategoryDto dto) {
+//
+//		return null;
+//	}
+//
+//	public CategoryDto updateCategory(CategoryDto dto) {
+//
+//		return null;
+//	}
+//
+//	public void deleteCategory(long catId) {
+//
+//	}
+//
+//	
+//public CategoryDto getCategoryById(long catId) {
+//		
+//		
+//		return null;
+//	}
+//
+//public List<CategoryDto> getAllCategories() {
+//	
+//	
+//	return null;
+//}
+

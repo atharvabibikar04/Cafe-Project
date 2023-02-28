@@ -1,0 +1,15 @@
+package com.app.service;
+
+import org.springframework.http.ResponseEntity;
+
+import com.app.entity.Category;
+
+public interface ICategoryService {
+
+	ResponseEntity<Category> addCategory(Category catobj);
+
+	void deleteCategoryById(Long id);
+
+	Category viewAllCat();
+
+}

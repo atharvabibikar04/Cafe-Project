@@ -1,0 +1,27 @@
+package com.app.contoller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.dto.CategoryDto;
+import com.app.entity.Category;
+import com.app.service.CategoryService;
+
+
+@RequestMapping("/category")
+@RestController
+public class CategoryController {
+
+	
+	@Autowired
+	private CategoryService catService;
+	
+	public ResponseEntity<CategoryDto>createCategory(@RequestBody CategoryDto catDto ){
+		CategoryDto create=this.catService.createCategory(catDto);
+		return new ResponseEntity<CategoryDto>(createCategory(catDto));
+		}
+}

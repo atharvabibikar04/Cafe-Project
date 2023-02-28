@@ -1,0 +1,62 @@
+package com.app.service;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.dto.CategoryDto;
+import com.app.entity.Category;
+import com.app.repository.ICategoryRepository;
+@Service
+@Transactional
+public class CategoryService implements ICategoryService{
+
+	@Autowired
+	private ICategoryRepository catrepo;
+	@Override
+	public void addCategory(Category catobj) {
+		catrepo.save(catobj);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+//	public CategoryDto createCategory(CategoryDto dto) {
+//
+//		return null;
+//	}
+//
+//	public CategoryDto updateCategory(CategoryDto dto) {
+//
+//		return null;
+//	}
+//
+//	public void deleteCategory(long catId) {
+//
+//	}
+//
+//	
+//public CategoryDto getCategoryById(long catId) {
+//		
+//		
+//		return null;
+//	}
+//
+//public List<CategoryDto> getAllCategories() {
+//	
+//	
+//	return null;
+//}
+}

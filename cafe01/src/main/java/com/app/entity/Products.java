@@ -8,9 +8,13 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import lombok.NoArgsConstructor;
+
 
 @Entity
-
+@NoArgsConstructor
 public class Products extends BaseEntity{
 
 	
@@ -29,6 +33,7 @@ public class Products extends BaseEntity{
 	@Column
 	private double unitPrice;
 	
+	@JsonBackReference
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;

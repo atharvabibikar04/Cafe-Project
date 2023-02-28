@@ -8,7 +8,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.NoArgsConstructor;
+
 @Entity
+@NoArgsConstructor
 public class Category extends BaseEntity {
 
 	@Column(length = 50, unique = true)
@@ -18,10 +23,17 @@ public class Category extends BaseEntity {
 	// Category -- one , parent , inverse(since no FK mapping)
 	
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)// ,fetch = FetchType.EAGER
-	
+	@JsonIgnore
 	private List<Products> products = new ArrayList<>();	// init to empty list
 
+	//ctor
+	public Category(String categoryName, String description) {
+		super();
+		CategoryName = categoryName;
+		this.description = description;
+	}
 	
+
 	// getter_Setters
 	public String getCategoryName() {
 		return CategoryName;

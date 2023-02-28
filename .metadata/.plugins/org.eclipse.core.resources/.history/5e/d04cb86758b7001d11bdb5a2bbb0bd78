@@ -1,0 +1,22 @@
+package com.app.service;
+
+
+
+import javax.transaction.Transactional;
+
+
+
+import com.app.entity.Category;
+
+public class CategoryServicesImpl implements CategoryServices {
+
+	
+	@Service
+	@Transactional
+	@Override
+	public Category createNewCat(Category category) {
+		
+		return null;
+	}
+
+}

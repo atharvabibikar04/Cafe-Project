@@ -1,0 +1,30 @@
+package com.app.service;
+
+import com.app.dto.CategoryDto;
+import com.app.entity.Category;
+
+public class CategoryService {
+
+	public CategoryDto createCategory(CategoryDto dto) {
+
+		return null;
+	}
+
+	public CategoryDto updateCategory(CategoryDto dto) {
+
+		return null;
+	}
+
+	public void deleteCategory(long catId) {
+
+	}
+
+	
+public CategoryDto getCategory(long catId) {
+		
+		
+		return null;
+	}
+
+
+}
