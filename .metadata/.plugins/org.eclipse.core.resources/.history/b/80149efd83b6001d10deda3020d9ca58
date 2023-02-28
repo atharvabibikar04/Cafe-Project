@@ -1,0 +1,32 @@
+package com.app.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+
+@Entity
+
+public class Products extends BaseEntity{
+
+	
+	@Column(length = 50, unique = true)
+	private String foodName;
+
+	@Column(length = 150)
+	private String foodDetails;
+
+	@Column(length = 150)
+	private String imageUrl;
+
+	@Column
+	private boolean available;
+	
+	@Column
+	private double unitPrice;
+	
+	
+	@Enumerated(EnumType.STRING)
+	private FoodCategory food_category;
+}

@@ -1,0 +1,66 @@
+package com.app.entity;
+
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.springframework.data.annotation.ReadOnlyProperty;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name="user")
+@AllArgsConstructor
+@ToString
+@Getter
+@Setter
+public class User extends BaseEntity{
+	
+	@Column(length = 40, unique = true)
+	private String email;
+
+	@Column(length = 40, name = "first_name")
+	private String firstName;
+
+	@Column(length = 40, name = "last_name")
+	private String lastName;
+
+	@Column(length = 350)
+	private String password;
+
+	@Column(name = "Date_Of_Birth")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate DOB;
+
+	@Column(name = "mobile_no", unique = true)
+	private String mobNo;
+
+	@ReadOnlyProperty
+	@Column(name = "Reg_Date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate regDate;
+	
+	@Enumerated(EnumType.STRING)
+	private UserRole role;
+	
+	@OneToOne(mappedBy = "user") /* In bi directional mapping to avoid fk 
+	in both user and cart we define which is fk and which is pk by mappedBy*/
+	private Cart cart;
+	
+	
+	// No-agrs constructor
+		public User() {
+			super();
+			this.regDate = LocalDate.now();
+		}
+}

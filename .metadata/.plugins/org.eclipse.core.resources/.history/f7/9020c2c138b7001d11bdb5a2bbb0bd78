@@ -1,0 +1,13 @@
+package com.app.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class Cart extends BaseEntity {
+
+	private CartItem cartItem ;
+	
+	
+	
+	
+}

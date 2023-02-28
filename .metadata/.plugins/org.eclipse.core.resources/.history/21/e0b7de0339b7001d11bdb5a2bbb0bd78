@@ -1,0 +1,21 @@
+package com.app.entity;
+
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Cart extends BaseEntity {
+
+	
+	@OneToMany // one cart will have may cartItems
+	private List<CartItem> cartItem ;
+
+	
+	
+	
+	
+	
+	
+}

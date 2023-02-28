@@ -1,0 +1,15 @@
+package com.app.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+
+@Entity
+public class Category {
+
+	@Column(length = 50, unique = true)
+	private String foodName;
+
+	
+	
+}

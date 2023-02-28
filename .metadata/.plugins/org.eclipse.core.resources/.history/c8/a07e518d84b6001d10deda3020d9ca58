@@ -1,0 +1,55 @@
+package com.app.entity;
+import java.time.LocalDate;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.OneToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import lombok.Getter;
+import lombok.Setter;
+@Entity
+@Getter
+@Setter
+public class PlaceOrder {
+	private int quantity;
+
+	@OneToOne
+	private Products product;
+
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate orderDate;
+
+	@Enumerated(EnumType.STRING)
+	private PlaceOrderStatus status;
+
+
+
+	public PlaceOrder() {
+		super();
+		this.orderDate = LocalDate.now();
+		this.status = PlaceOrderStatus.ORDER_PLACED;
+		
+	}
+
+	public PlaceOrder(int quantity, Products product) {
+		super();
+		this.quantity = quantity;
+		this.product = product;
+		this.orderDate = LocalDate.now();
+		this.status = PlaceOrderStatus.ORDER_PLACED;
+		
+	}
+
+	@Override
+	public String toString() {
+		return "PlaceOrder [quantity=" + quantity + ", product=" + product + ", orderDate=" + orderDate + "]";
+	}
+
+	
+
+
+}

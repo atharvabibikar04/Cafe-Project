@@ -1,0 +1,24 @@
+package com.app.entity;
+
+
+import java.util.HashSet;
+import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Cart extends BaseEntity {
+
+	
+	@OneToMany // one cart will have may cartItems
+	private Set<CartItem> cartItem =new HashSet<CartItem>(); //cart will have HashSet/ list of cartItems
+	
+	
+
+	
+	
+	
+	
+	
+	
+}
