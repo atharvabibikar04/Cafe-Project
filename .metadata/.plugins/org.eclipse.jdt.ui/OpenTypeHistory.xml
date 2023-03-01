@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=cafe01/C:\/Users\/ATHARVA B\/.m2\/repository\/org\/springframework\/data\/spring-data-jpa\/2.7.8\/spring-data-jpa-2.7.8.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-jpa=/=/maven.version=/2.7.8=/=/maven.scope=/compile=/&lt;org.springframework.data.jpa.repository(JpaRepository.class[JpaRepository" modifiers="1537" timestamp="1677251215642"/>
-    <typeInfo handle="=cafe01/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.app.service{IProductServices.java[IProductServices" modifiers="513" timestamp="1677593950035"/>
+    <typeInfo handle="=cafe01/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.app.service{IProductServices.java[IProductServices" modifiers="513" timestamp="1677597920006"/>
 </typeInfoHistroy>

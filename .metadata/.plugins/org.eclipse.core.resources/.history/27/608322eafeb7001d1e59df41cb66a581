@@ -1,0 +1,23 @@
+package com.app.service;
+
+import com.app.dto.LoginRequestDto;
+import com.app.entity.User;
+
+
+
+@Service
+@Transactional
+public class HomePgServices implements IHomePgServices {
+
+	@Autowired
+	private IHomePgServices empRepo;
+	
+	
+	@Override
+	public User authenticateUser(LoginRequestDto dto) {
+		return empRepo.findByEmailAndPassword(dto.getEmail(), dto.getPassword())
+				.orElseThrow(() -> new ResourceNotFoundException("Bad Credentials !!!!!"));
+	}
+	}
+
+}

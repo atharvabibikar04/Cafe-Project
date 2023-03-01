@@ -1,0 +1,28 @@
+package com.app.service;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.app.custom_exceptions.ResourceNotFoundException;
+import com.app.dto.LoginRequestDto;
+import com.app.dto.UserDto;
+import com.app.entity.User;
+import com.app.repository.IHomePgRepository;
+
+@Service
+@Transactional
+public class HomePgServices implements IHomePgServices {
+
+	@Autowired
+	private IHomePgRepository HomePgRepo;
+
+	@Override
+	public User authenticateUser(LoginRequestDto dto) {
+		return HomePgRepo.findByEmailAndPassword(dto.getEmail(), dto.getPassword())
+				.orElseThrow(() -> new ResourceNotFoundException("Bad Credentials !!!!!"));
+	}
+
+	
+}

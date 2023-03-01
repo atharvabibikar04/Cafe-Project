@@ -1,0 +1,39 @@
+package com.app.contoller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.app.dto.LoginRequestDto;
+import com.app.entity.LogRegStatus;
+import com.app.entity.User;
+import com.app.service.IHomePgServices;
+
+@RequestMapping("/home")
+@RestController
+public class HomeController {
+	@Autowired
+	private IHomePgServices ihomepgser;
+	
+	
+	
+	@PostMapping("/signin")
+	public User validateUser(@RequestBody LoginRequestDto dto)
+	{
+		System.out.println("in emp signin "+dto);
+		return ihomepgser.authenticateUser(dto);
+//		if(user!=null) {
+//			return user;
+//			
+		}
+	
+	@PostMapping("/signup")
+	public LogRegStatus registerUser(@RequestBody User newUser)
+	
+	}
+	
+

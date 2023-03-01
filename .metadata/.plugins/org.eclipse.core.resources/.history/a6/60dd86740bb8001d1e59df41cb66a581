@@ -1,0 +1,11 @@
+package com.app.entity;
+
+public enum LogRegStatus {
+
+	SUCCESS {
+		@Override
+		public String orderStatusDescription() {
+			return "Order was rejected";
+		}
+	},
+}

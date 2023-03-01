@@ -1,6 +1,7 @@
 package com.app.entity;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,7 +44,7 @@ public class User extends BaseEntity{
 	private LocalDate DOB;
 
 	@Column(name = "mobile_no", unique = true)
-	private String mobNo;
+	private Long mobNo;
 
 	@ReadOnlyProperty
 	@Column(name = "Reg_Date")
@@ -63,5 +64,14 @@ public class User extends BaseEntity{
 		public User() {
 			super();
 			this.regDate = LocalDate.now();
+		}
+
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj) return true;
+			if (obj == null) return false;
+			User other = (User) obj;
+			return Objects.equals(email, other.email) && Objects.equals(password, other.password);
 		}
 }

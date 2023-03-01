@@ -1,0 +1,11 @@
+package com.app.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.app.entity.User;
+
+public interface IHomePgRepository extends JpaRepository<User, Long> {
+
+	Object findByEmailAndPassword(String email, String password);
+
+}
